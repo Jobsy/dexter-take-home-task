@@ -1,0 +1,31 @@
+# version: '3'
+# services:
+#   microservice-a:
+#     build:
+#       context: ./microservice_a
+#       dockerfile: Dockerfile
+#     ports:
+#       - 8000:8000
+#   microservice-b:
+#     build:
+#       context: ./microservice_b
+#       dockerfile: Dockerfile
+#     ports:
+#       - 9000:5000
+
+version: '3'
+services:
+  microservice-a:
+    build:
+      context: ./microservice_a
+      dockerfile: Dockerfile
+    volumes:
+      - ./audio_files:/app/audio_files
+    ports:
+      - 8000:8000
+  microservice-b:
+    build:
+      context: ./microservice_b
+      dockerfile: Dockerfile
+    ports:
+      - 9000:5000
